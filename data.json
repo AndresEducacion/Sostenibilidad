@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "alumna": "Sara Pérez",
+    "titulo": "Paisajes Sonoros Urbanos",
+    "file": "ppt/sara.pdf",
+    "thumb": "assets/sara_thumb.jpg",
+    "color": "#F7A9A8",
+    "x": 200,
+    "y": 200
+  },
+  {
+    "id": "2",
+    "alumna": "Lucía Gómez",
+    "titulo": "Materialidad y Consumo",
+    "file": "ppt/lucia.pdf",
+    "thumb": "assets/lucia_thumb.jpg",
+    "color": "#8BD3DD",
+    "x": 600,
+    "y": 300
+  }
+]

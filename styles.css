@@ -1,0 +1,151 @@
+/* --- FONDO GENERAL --- */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: "Inter", sans-serif;
+  color: white;
+  overflow: hidden;
+
+  /* Grid blueprint suave */
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  padding: 20px;
+  color: #e6e6e6;
+}
+
+/* El canvas infinito */
+#workspace {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+  cursor: grab;
+}
+
+#workspace:active {
+  cursor: grabbing;
+}
+
+/* El viewport que se escala y mueve */
+#viewport {
+  position: absolute;
+  transform-origin: 0 0;
+}
+
+
+/* --- NODO ESTILO GLITCH + GRID --- */
+.node {
+  position: absolute;
+  width: 280px;
+  padding: 14px;
+  border-radius: 16px;
+  cursor: grab;
+  color: #111;
+
+  /* Desactivar selección y drag nativo en el nodo */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+
+  /* Glow suave */
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.25);
+
+  /* glitch jitter */
+  animation: glitchMove 3s infinite alternate ease-in-out;
+
+  /* El nodo SÍ recibe eventos */
+  pointer-events: auto;
+  
+   box-shadow:
+    0 0 15px var(--glow-color),
+    0 0 15px var(--glow-color);
+}
+
+/* Todo lo de dentro del nodo NO intercepta eventos (los “pasa” al nodo) */
+.node * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  color: #111111; /* texto oscuro */
+}
+
+/* Miniatura */
+.node img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+
+  /* bordes blueprint */
+  outline: 1px solid rgba(255,255,255,0.2);
+  outline-offset: -4px;
+}
+
+/* Título / autora */
+.node h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.node p {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Efecto glitch suave */
+@keyframes glitchMove {
+  0% { transform: translate(0px,0px); }
+  50% { transform: translate(0.8px, -0.6px); }
+  100% { transform: translate(-0.6px, 0.8px); }
+}
+
+/* --- Modal PPT --- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+}
+
+.modal-content {
+  width: 80%;
+  height: 80%;
+  background: #111;
+  margin: 5% auto;
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,200,255,0.3);
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #fff;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
