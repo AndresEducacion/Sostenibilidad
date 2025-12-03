@@ -46,7 +46,7 @@ function enablePanZoom() {
   const workspace = document.getElementById("workspace");
   const viewport = document.getElementById("viewport");
 
-  // PAN SOLO SI NO ESTÁS SOBRE UN NODO
+
   workspace.addEventListener("mousedown", e => {
     if (e.target.classList.contains("node")) return;  // el nodo gestionará su arrastre
 
